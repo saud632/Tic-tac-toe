@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="feature.css">
+    <script src="feature.js"></script>
+    <title>Document</title>
+</head>
+<body>
+        <div class="main">
+            <h1>TiC TAC TOE</h1>
+    
+    <p id="ins">
+    Game starts by just Tap on box<br>First Player starts as <b>Player X</b><br>And<br>SecondPlayer as <b>Player 0</b>
+    </p>
+    
+    <br> <br>
+        <div class="grid">
+            <div class="list1">
+                <div  class="modified" id="b1" onclick="updateCell('b1');checkWin();" ></div>
+                <div class="modified"  id="b2"onclick="updateCell('b2');checkWin();" ></div>
+                <div  class="modified" id="b3"onclick="updateCell('b3');checkWin();" readonly></div>
+            </div>
+        <div class="list2">
+            <div class="modified" id="b4" onclick="updateCell('b4');checkWin();" readonly></div>
+        <div class="modified"  id="b5" onclick="updateCell('b5');checkWin();" readonly></div>
+        <div class="modified" id="b6" onclick="updateCell('b6');checkWin();" readonly></div>
+        </div>
+        <div class="list3">
+            <div class="modified" id="b7"onclick="updateCell('b7');checkWin();" readonly></div>
+        <div class="modified"  id="b8"onclick="updateCell('b8');checkWin();" readonly></div>
+        <div class="modified" id="b9"onclick="updateCell('b9');checkWin();" readonly></div>
+        </div>
+        </div>
+
+
+        <br> <br> <br>
+
+
+<button id="res" onclick="reset()">RESET</button>
+<p id="print"></p>
+
+
+    </div>
+</body>
+</html>
