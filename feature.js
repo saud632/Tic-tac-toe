@@ -8,7 +8,7 @@ function checkWin() {
     for (var i = 0; i < inputs.length; i++) {
         inputs[i] = inputs[i].innerHTML
     }
-    
+  
 
 
 
@@ -27,7 +27,12 @@ function checkWin() {
             document.getElementById('print').innerHTML = "player 0 Turn";
         }
     }
+   
 
+}
+document.addEventListener("win",playAudio);
+function playAudio(){
+    var x = document.getElementById("myAudio").play();
 }
 
 function checkWinForPlayer(symbol, inputs) {
@@ -37,9 +42,9 @@ function checkWinForPlayer(symbol, inputs) {
             (inputs[i + 2].toLowerCase() == symbol)) {
             document.getElementById('print').innerHTML = "player " + symbol + "won";
             window.alert('player' + symbol + 'won')
+            const ev= new Event("win");
+            document.dispatchEvent(ev)
         }
-
-
     }
     for (var i = 0; i < inputs.length / 3; i += 1) {
         console.log(i)
@@ -48,9 +53,12 @@ function checkWinForPlayer(symbol, inputs) {
             (inputs[i + 6].toLowerCase() == symbol)) {
             document.getElementById('print').innerHTML = "player " + symbol + "won";
             window.alert('player' + symbol + 'won')
+            const ev= new Event("win");
+            document.dispatchEvent(ev)
         }
 
-
+       
+        
     }
     if ((inputs[0].toLowerCase() == symbol) &&
         (inputs[4].toLowerCase() == symbol) &&
@@ -63,6 +71,9 @@ function checkWinForPlayer(symbol, inputs) {
         document.getElementById("b7").disabled = true;
         document.getElementById("b8").disabled = true;
         window.alert('Player ' + symbol + ' won');
+        const ev= new Event("win");
+        document.dispatchEvent(ev)
+        
     }
     else if ((inputs[2].toLowerCase() == symbol) &&
         (inputs[4].toLowerCase() == symbol) &&
@@ -75,6 +86,8 @@ function checkWinForPlayer(symbol, inputs) {
         document.getElementById("b8").disabled = true;
         document.getElementById("b9").disabled = true;
         window.alert('Player ' + symbol + ' won');
+        const ev= new Event("win");
+        document.dispatchEvent(ev)
     }
 }
 
