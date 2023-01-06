@@ -118,3 +118,14 @@ function updateCell(id) {
         flag = 1;
     }
 }
+
+window.matchMedia('(prefers-color-scheme: dark)')
+      .addEventListener('change', ({ matches }) => {
+  if (matches) {
+    document.querySelector('html').classList.add('dark-mode')
+    console.log("change to dark mode!")
+  } else {
+    document.querySelector('html').classList.remove('dark-mode')
+    console.log("change to light mode!")
+  }
+})
