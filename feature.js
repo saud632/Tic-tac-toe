@@ -27,9 +27,8 @@ function checkWin() {
             document.getElementById('print').innerHTML = "player 0 Turn";
         }
     }
-   
-
 }
+
 document.addEventListener("win",playAudio);
 function playAudio(){
     var x = document.getElementById("myAudio").play();
@@ -129,3 +128,18 @@ window.matchMedia('(prefers-color-scheme: dark)')
     console.log("change to light mode!")
   }
 })
+
+
+const urlparams = new URLSearchParams(window.location.search);
+
+
+const player1=urlparams.get('player1');
+// player1=document.getElementById('player1-name').value;
+// document.getElementById("player1-name").innerHTML='player1';
+//  
+
+const player2=urlparams.get('player2');
+// document.getElementById("player2-name").innerHTML='player2';
+
+
+console.log("player names:", player1, player2);
