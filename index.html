@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="index.js"></script>
-
     <title>Document</title>
 </head>
 
@@ -19,8 +18,16 @@
         <label>Player X</label>
         <input type="text" name="Player X" id="b1"  >
         <br><br>
-        <label>Player 0</label>
-        <input type="text" name="Player 0" id="b2">
+        <label>choose second player</label>
+        <select name="choose" id="choose">
+            <option value="play with Computer" id="comp">play With Computer</option>
+            <option value="play with friend" id="friend" onclick=" userinput()">play with friend</option>
+        </select> <br>
+        <div id="secondplayer">
+            <label> Second player</label>
+        <input type="text" name="Player X" id="b2"   >
+        </div>
+        <br>
         <br><br>
         <button id="res" onclick="myfunction()">Start</button>
     </div>
