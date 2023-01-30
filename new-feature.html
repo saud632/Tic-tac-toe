@@ -8,34 +8,35 @@
     <script src="feature.js"></script>
     <title>Document</title>
 </head>
-<body>
+<body onload="printname()">
         <div class="main">
             <h1>TiC TAC TOE</h1>
     
     <p id="ins">
-    Game starts by just Tap on box<br>First Player starts as <b>Player X</b><br>And<br>SecondPlayer as <b>Player 0</b>
+    Game starts by just Tap on box<br><b><span id="player1-name"></span></b> starts as <b>Player X</b><br>And<br><b><span id="player2-name" ></span></b> as <b>Player 0</b>
     </p>
     
     <br> <br>
         <div class="grid">
             <div class="list1">
-                <div  class="modified" id="b1" onclick="updateCell('b1');checkWin();" ></div>
-                <div class="modified"  id="b2"onclick="updateCell('b2');checkWin();" ></div>
-                <div  class="modified" id="b3"onclick="updateCell('b3');checkWin();" readonly></div>
+                <div  class="modified board-button" id="b1"  onclick="updateCell('b1');checkWin();" ></div>
+                <div class="modified board-button"  id="b2"onclick="updateCell('b2');checkWin();" ></div>
+                <div  class="modified board-button" id="b3"onclick="updateCell('b3');checkWin();" readonly></div>
             </div>
         <div class="list2">
-            <div class="modified" id="b4" onclick="updateCell('b4');checkWin();" readonly></div>
-        <div class="modified"  id="b5" onclick="updateCell('b5');checkWin();" readonly></div>
-        <div class="modified" id="b6" onclick="updateCell('b6');checkWin();" readonly></div>
+            <div class="modified board-button" id="b4" onclick="updateCell('b4');checkWin();" readonly></div>
+        <div class="modified board-button"  id="b5" onclick="updateCell('b5');checkWin();" readonly></div>
+        <div class="modified board-button" id="b6" onclick="updateCell('b6');checkWin();" readonly></div>
         </div>
         <div class="list3">
-            <div class="modified" id="b7"onclick="updateCell('b7');checkWin();" readonly></div>
-        <div class="modified"  id="b8"onclick="updateCell('b8');checkWin();" readonly></div>
-        <div class="modified" id="b9"onclick="updateCell('b9');checkWin();" readonly></div>
+            <div class="modified board-button" id="b7"onclick="updateCell('b7');checkWin();" readonly></div>
+        <div class="modified board-button"  id="b8"onclick="updateCell('b8');checkWin();" readonly></div>
+        <div class="modified board-button" id="b9"onclick="updateCell('b9');checkWin();" readonly></div>
         </div>
         </div>
 
-
+        <audio  src="/audio/success-1-6297.mp3" id="myAudio" controls  style="display: none;"></audio>
+    
         <br> <br> <br>
 
 
@@ -44,5 +45,18 @@
 
 
     </div>
+    <script>
+        document.getElementById("player1-name").innerHTML=player1;
+        function printname(){
+            if(player2!=='')
+               {
+                document.getElementById("player2-name").innerHTML=player2;
+               }
+            else{
+                document.getElementById("player2-name").innerHTML=Computer;
+            }
+            
+        }
+    </script>
 </body>
 </html>

@@ -1,104 +1,43 @@
-function checkWin() {
-    var inputs = [
-        document.getElementById("b1").value, document.getElementById("b2").value, document.getElementById("b3").value,
-        document.getElementById("b4").value, document.getElementById("b5").value, document.getElementById("b6").value,
-        document.getElementById("b7").value, document.getElementById("b8").value, document.getElementById("b9").value
-    ]
 
-    if ((inputs[0] != '') && (inputs[1] != '') && (inputs[2] != '') && (inputs[3] != '') && (inputs[4] != '') && (inputs[5] != '') && (inputs[6] != '') && (inputs[7] != '') && (inputs[8] != '0')) {
-        document.getElementById('print').innerHTML = "Match Tie";
-        window.alert('Match Tie');
+function myfunction() {
+    var p1=document.getElementById('b1').value;
+var p2=document.getElementById('comp').value;
+    var p3=document.getElementById('b2').value;
+  
+    window.open("http://127.0.0.1:5500/new-feature.html?player1=" + p1 +"&Computer="+ p2+ "&player2=" +p3)
+
     }
-    else {
-        checkWinForPlayer('x', inputs)
+    
 
-        checkWinForPlayer('0', inputs)
-        if (flag == 1) {
-            document.getElementById('print').innerHTML = "player X Turn";
+    function userinput() {
+        // get the clock
+        var mydiv = document.getElementById('secondplayer');
+    
+        // get the current value of the clock's display property
+        var displaySetting = mydiv.style.display;
+    
+        // also get the clock button, so we can change what it says
+        var friend = document.getElementById('friend');
+    
+        // now toggle the clock and the button text, depending on current state
+        if (displaySetting == 'block') {
+          // clock is visible. hide it
+          mydiv.style.display = 'none';
+          // change button text
+          friend.innerHTML = 'Show content';
         }
         else {
-            document.getElementById('print').innerHTML = "player 0 Turn";
+          // clock is hidden. show it
+          mydiv.style.display = 'block';
+          // change button text
+          friend.innerHTML = 'Enter player name';
         }
-    }
+      }
+       // let cell="";
+    // cell=getGameState()
+    // console.log(cell)
+    // for(const x of freePositions)
+    // cell+=x+
 
-}
-function checkWinForPlayer(symbol, inputs) {
-    for (var i = 0; i < inputs.length; i += 3) {
-        if ((inputs[i].toLowerCase() == symbol) &&
-            (inputs[i + 1].toLowerCase() == symbol) &&
-            (inputs[i + 2].toLowerCase() == symbol)) {
-            document.getElementById('print').innerHTML = "player " + symbol + "won";
-            window.alert('player' + symbol + 'won')
-        }
-
-
-    }
-    for (var i = 0; i < inputs.length / 3; i += 1) {
-        console.log(i)
-        if ((inputs[i].toLowerCase() == symbol) &&
-            (inputs[i + 3].toLowerCase() == symbol) &&
-            (inputs[i + 6].toLowerCase() == symbol)) {
-            document.getElementById('print').innerHTML = "player " + symbol + "won";
-            window.alert('player' + symbol + 'won')
-        }
-
-
-    }
-    if ((inputs[0].toLowerCase() == symbol) &&
-        (inputs[4].toLowerCase() == symbol) &&
-        (inputs[8].toLowerCase() == symbol)) {
-        document.getElementById('print').innerHTML = "Player " + symbol + " won";
-        document.getElementById("b2").disabled = true;
-        document.getElementById("b3").disabled = true;
-        document.getElementById("b4").disabled = true;
-        document.getElementById("b6").disabled = true;
-        document.getElementById("b7").disabled = true;
-        document.getElementById("b8").disabled = true;
-        window.alert('Player ' + symbol + ' won');
-    }
-    else if ((inputs[2].toLowerCase() == symbol) &&
-        (inputs[4].toLowerCase() == symbol) &&
-        (inputs[6].toLowerCase() == symbol)) {
-        document.getElementById('print').innerHTML = "Player " + symbol + " won";
-        document.getElementById("b1").disabled = true;
-        document.getElementById("b2").disabled = true;
-        document.getElementById("b4").disabled = true;
-        document.getElementById("b6").disabled = true;
-        document.getElementById("b8").disabled = true;
-        document.getElementById("b9").disabled = true;
-        window.alert('Player ' + symbol + ' won');
-    }
-}
-
-function reset() {
-    location.reload();
-    document.getElementById("b1").value = '';
-    document.getElementById("b2").value = '';
-    document.getElementById("b3").value = '';
-    document.getElementById("b4").value = '';
-    document.getElementById("b5").value = '';
-    document.getElementById("b6").value = '';
-    document.getElementById("b7").value = '';
-    document.getElementById("b8").value = '';
-    document.getElementById("b9").value = '';
-}
-flag = 1;
-function updateCell(id) {
-    if (flag ==1) {
-        document.getElementById(id).innerText = "X";
-        document.getElementById(id).disabled = true;
-        flag = 0;
-    }
-    else {
-        document.getElementById(id).inner = "0";
-        document.getElementById(id).disabled = true;
-        flag = 1;
-    }
-    console.log(updateCell)
-}
-
-
-// add (staging)
-// status
-//commit
-// push, pull
+    // console.log("iterate the cell")
+    // if(cell==""){

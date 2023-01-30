@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,8 +9,58 @@
     <script src="index.js"></script>
     <title>Document</title>
 </head>
+
 <body>
+
     <div class="main">
+        <h1>Please Enter your player name</h1>
+        <br>
+        <label>Player X</label>
+        <input type="text" name="Player X" id="b1"  >
+        <br><br>
+        <label>choose second player</label>
+        <select name="choose" id="choose">
+            <option value="play with Computer" id="comp">play With Computer</option>
+            <option value="play with friend" id="friend" onclick=" userinput()">play with friend</option>
+        </select> <br>
+        <div id="secondplayer">
+            <label> Second player</label>
+        <input type="text" name="Player X" id="b2"   >
+        </div>
+        <br>
+        <br><br>
+        <button id="res" onclick="myfunction()">Start</button>
+    </div>
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <div class="main">
         <h1>TiC TAC TOE</h1>
 
 <p id="ins">
@@ -20,19 +71,20 @@ Game starts by just Tap on box<br><br>First Player starts as <b>Player X</b><br>
 <div class="grid">
     <input type="text"  id="b1" onclick= "updateCell('b1');checkWin();" readonly>
     <input type="text"   id="b2"class="vl" onclick="updateCell('b2');checkWin();" readonly>
-    <input type="text"   id="b3"class="vl" onclick="updateCell('b3');checkWin();" readonly>
+    <!-- <input type="text"   id="b3"class="vl" onclick="updateCell('b3');checkWin();" readonly>
     <input type="text"   id="b4" onclick="updateCell('b4');checkWin();" readonly>
     <input type="text"   id="b5" class="vl"onclick="updateCell('b5');checkWin();" readonly>
     <input type="text"   id="b6"class="vl" onclick="updateCell('b6');checkWin();" readonly>
     <input type="text"  id="b7"onclick="updateCell('b7');checkWin();" readonly>
     <input type="text"   id="b8"class="vl"onclick="updateCell('b8');checkWin();" readonly>
-    <input type="text"  id="b9"class="vl"onclick="updateCell('b9');checkWin();" readonly>
-</div>
+    <input type="text"  id="b9"class="vl"onclick="updateCell('b9');checkWin();" readonly> -->
+    <!-- </div>
 <br> <br> <br>
 
 
 <button id="res" onclick="reset()">RESET</button>
 <p id="print"></p>
+ -->
 
 
 
@@ -43,7 +95,7 @@ Game starts by just Tap on box<br><br>First Player starts as <b>Player X</b><br>
 
 
 
-
-    </div>
+    <!-- </div> -->
 </body>
+
 </html>
