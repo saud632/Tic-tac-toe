@@ -33,3 +33,11 @@ var p2=document.getElementById('comp').value;
           friend.innerHTML = 'Enter player name';
         }
       }
+       // let cell="";
+    // cell=getGameState()
+    // console.log(cell)
+    // for(const x of freePositions)
+    // cell+=x+
+
+    // console.log("iterate the cell")
+    // if(cell==""){

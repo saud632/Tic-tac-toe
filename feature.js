@@ -1,13 +1,5 @@
 function checkWin() {
-    var inputs = [
-        document.getElementById("b1"), document.getElementById("b2"), document.getElementById("b3"),
-        document.getElementById("b4"), document.getElementById("b5"), document.getElementById("b6"),
-        document.getElementById("b7"), document.getElementById("b8"), document.getElementById("b9"),
-    ]
-
-    for (var i = 0; i < inputs.length; i++) {
-        inputs[i] = inputs[i].innerHTML
-    }
+    var inputs = getGameState()
 
     const symbols = ['x', '0']
     for (let i = 0; i < 2; i++) {
@@ -26,7 +18,7 @@ function checkWin() {
             return
         }
     }
-    
+
     if ((inputs[0] != '') && (inputs[1] != '') && (inputs[2] != '') && (inputs[3] != '') && (inputs[4] != '') && (inputs[5] != '') && (inputs[6] != '') && (inputs[7] != '') && (inputs[8] != '')) {
         document.getElementById('print').innerHTML = "Match Tie";
         window.alert('Match Tie');
@@ -44,29 +36,20 @@ document.addEventListener("win", playAudio);
 function playAudio() {
     var x = document.getElementById("myAudio").play();
 }
-// function computerMove(id) {
-//     var emptyCells = [];
-//     var random;
 
-//     for (var i = 0; i < inputs.length; i++) {
-//       if (inputs[i] == '') {
-//         emptyCells.push(inputs[i]);
-//       }
-//     }
+function getGameState() {
+    const inputs = [
+        document.getElementById("b1"), document.getElementById("b2"), document.getElementById("b3"),
+        document.getElementById("b4"), document.getElementById("b5"), document.getElementById("b6"),
+        document.getElementById("b7"), document.getElementById("b8"), document.getElementById("b9"),
+    ]
 
-//     inputs.forEach(function(inputs){
-//       if (inputs == '') {
-//         emptyCells.push(inputs);
-//       }
-//     });
+    for (var i = 0; i < inputs.length; i++) {
+        inputs[i] = inputs[i].innerHTML
+    }
 
-//     // computer marks a random EMPTY cell
-//     random = Math.ceil(Math.random() * emptyCells.length) - 1;
-//     emptyCells[random] = symbol;
-//     checkWinForPlayer();
-//     updateCell();
-//   }
-
+    return inputs
+}
 
 function checkWinForPlayer(symbol, inputs) {
     for (var i = 0; i < inputs.length; i += 3) {
@@ -80,7 +63,7 @@ function checkWinForPlayer(symbol, inputs) {
         if ((inputs[i].toLowerCase() == symbol) &&
             (inputs[i + 3].toLowerCase() == symbol) &&
             (inputs[i + 6].toLowerCase() == symbol)) {
-                return true
+            return true
         }
     }
     if ((inputs[0].toLowerCase() == symbol) &&
@@ -128,22 +111,65 @@ function updateCell(id) {
         flag = 1
     }
 }
-
 function computerTurn(flag) {
+
     const freePositions = []
     const positions = document.querySelectorAll('.board-button')
+const  position=[]
+    for(var i=0;i<3 ;i++){
+freePositions.push(position)
+    }
+
 
     positions.forEach(position => {
-        if (!position.innerHTML) freePositions.push(position)
-    })
+        if (!position.innerHTML)
+            freePositions.push(position)
 
-    if (freePositions.length <= 0)
+    })
+console.log(position)
+    if (freePositions.length <=0)
         return
 
-    const randomMoveIndex = Math.ceil(Math.random() * freePositions.length -1);
+    let computerChoice = intelligentChoice()
+    console.log(computerChoice)
+    if (computerChoice == -1) {
+    computerChoice = Math.floor(Math.random() * freePositions.length);
 
-    freePositions[randomMoveIndex].innerHTML = flag === 0 ? '0' : 'X'
+    }
+
+    freePositions[computerChoice].innerHTML = flag === 0 ? '0' : 'X'
+
 }
+
+function intelligentChoice() {
+
+    for (let i = 0; i < 9; i++){
+        const allCells = getGameState()
+        if (allCells[i] == '') {
+            allCells[i] ='x';
+            }
+            if(checkWinForPlayer('x',allCells)){
+                return i
+            }
+         
+            
+        }
+    
+return -1
+
+}
+
+// intelligent choice instead of random
+// 1. allCells = getGameState()
+// 2. iterate over all cells
+//   3. mark cell as opposite player (X), if cell is empty
+//   4. check if win condition applies as opposite player (X)
+//     5. return the index of cell
+// . const computerChoice = returned index
+
+
+
+
 
 window.matchMedia('(prefers-color-scheme: dark)')
     .addEventListener('change', ({ matches }) => {
